@@ -1,0 +1,168 @@
+﻿@page "/"
+@inject IJSRuntime JsRuntime;
+<div class="row">
+    <div class="col-md-11">
+        <div class="alert alert-info">@Message</div>
+    </div>  
+    <div class="col-md-1">
+        <button id="additem" class="btn btn-primary" @onclick='@( ()=>JustCall("additem", new[] { "New Task" }))'>Add Task</button>
+    </div>  
+</div>  
+<div class="container-fluid pt-3">
+    <div class="row flex-row flex-sm-nowrap py-3">
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body column" id="todo">
+                    <h6 class="card-title text-uppercase text-truncate py-2">To Do</h6>
+                    <div class="items border border-light">
+                        <div class="card task shadow-sm" id="task1">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-100</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                        <div class="card task shadow-sm" id="task2" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-101</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                        <div class="card task shadow-sm" id="task3" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-102</a>
+                                </div>
+                                <p>
+                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body column" id="progress">
+                    <h6 class="card-title text-uppercase text-truncate py-2">In-progess</h6>
+                    <div class="items border border-light" >
+                        <div class="card task shadow-sm" id="task1" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-103</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                        <div class="card task shadow-sm" id="task2" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-104</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body column"  id="review">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Review</h6>
+                    <div class="items border border-light">
+                        <div class="card task shadow-sm" id="task9" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-105</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card">
+                <div class="card-body column" id="complete">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Complete</h6>
+                    <div class="items border border-light">
+                        <div class="card task shadow-sm" id="task11" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-106</a>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                        <div class="card task shadow-sm" id="task12" >
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <a href="" class="lead font-weight-light">Task-107</a>
+                                </div>
+                                <p>
+                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <button class="btn btn-primary btn-sm">View</button>
+                            </div>
+                        </div>
+                        <div class="dropzone rounded"> &nbsp; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+     public static string Message { get; set; } = "Add a new task or drag and drop between columns";
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsRuntime.InvokeAsync<object>("appUI.initialize", DotNetObjectReference.Create(this));
+        }
+    }
+
+    protected async Task JustCall(string f) => await JsRuntime.InvokeAsync<object>($"appUI.{f}"); 
+
+    protected async Task JustCall(string f, params string[] args) => await JsRuntime.InvokeAsync<object>($"appUI.{f}", args); 
+
+    [JSInvokable("boardUpdated")]
+    public void boardUpdated(string input)
+    {
+        Message = input;
+        base.StateHasChanged();
+    }
+}

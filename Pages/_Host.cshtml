@@ -1,0 +1,80 @@
+﻿@page "/"
+@namespace BlazorJquery.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blazor + JQuery Kanban</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <app>
+        @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
+    </app>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="_framework/blazor.server.js"></script>
+  
+    <script>
+        var instance = null;
+
+        window.appUI = {
+
+            initialize: function (instance) {
+                instance = instance;
+
+
+             
+
+
+
+                $(".task").draggable({ appendTo: "body",
+                            stack: "ul",
+                            cursor: "move",
+                            containment: [0,100,10000,10000]});
+
+                $(".column").droppable({
+                    accept: ".task",
+                    activeClass: "ui-state-default",
+                    hoverClass: "ui-drop-hover",
+                    drop: function (event, ui) {
+                            var draggable = ui.draggable;
+                            var id = draggable.attr("id");
+                            instance.invokeMethodAsync("boardUpdated", "Added " + id + " to " + this.id);
+                    },
+                    out: function (event, ui) {
+                            var draggable = ui.draggable;
+                            var id = draggable.attr("id");
+                            instance.invokeMethodAsync("boardUpdated", "Removed " + id + " from " + this.id);
+                    }
+                });
+            },
+
+             additem: function (name) {
+              $(`<div class='card task shadow-sm' id=` + name + `>
+                    <div class='card-body p-2'>
+                        <div class='card-title'>
+                            <a href='' class='lead font-weight-light'>` + name + `</a>
+                        </div>
+                        <p>
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <button class='btn btn-primary btn-sm'>View</button>
+                    </div>
+                    <div class='dropzone rounded'> &nbsp; </div>
+                </div>`).appendTo("#todo").draggable({
+                            stack: "ul",
+                            cursor: "move",
+                            containment: [0,100,10000,10000]});
+            },  
+        };
+  </script>
+</body>
+</html>
